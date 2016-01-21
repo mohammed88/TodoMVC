@@ -27,6 +27,7 @@ var TodoListView = Backbone.View.extend({
 	},
 
 	newTodo: function(e) {
+		e.preventDefault();
 		this.collection.create({ title: this.input.val() })
 		this.input.val('').focus();
 	},
