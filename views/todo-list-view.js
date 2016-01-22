@@ -8,8 +8,6 @@ var $ = require('jquery');
 var TodoListView = Backbone.View.extend({
 	el: $('.todoapp'),
 
-	//template: require('ejs!../templates/todo-list-tmpl.ejs'),
-
 	events: {
 		'submit': 'newTodo',
 		'click .logout': 'logout'
@@ -21,7 +19,7 @@ var TodoListView = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		ReactDOM.render(<TodoList />, this.el); //this.$el.html(this.template());
+		ReactDOM.render(<TodoList />, this.el);
 		this.list = this.$('.todo-list');
 		this.input = this.$('input[type="text"]');
 		this.collection.forEach(function(model){

@@ -19,11 +19,8 @@ var TodoItemView = Backbone.View.extend({
 		'blur .edit': 'cancel',
 		'click .toggle': 'toggle'
 	},
-	
-	//template: require('ejs!../templates/todo-item-tmpl.ejs'),
 
 	render: function() {
-		//this.$el.html(this.template(this.model.attributes));
 		ReactDOM.render(
 			<TodoItem 
 				title={this.model.get('title')} 

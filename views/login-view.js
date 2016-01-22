@@ -7,15 +7,13 @@ var $ = require('jquery');
 var LoginView = Backbone.View.extend({
 	el: $('.todoapp'),
 
-	//template: require('ejs!../templates/login-tmpl.ejs'),
-
 	events: {
 		'click #login-button': 'login',
 		'keypress .pass': 'loginOnEnter'
 	},
 
 	render: function() {
-		ReactDOM.render(<Login />, this.el); //this.$el.html(this.template());
+		ReactDOM.render(<Login />, this.el);
 	},
 
 	login: function(e) {
