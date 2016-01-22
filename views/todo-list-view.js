@@ -1,11 +1,14 @@
 var Backbone = require('backbone');
+var React = require('react');
+var ReactDOM = require('react-dom');
 var TodoItemView = require('./todo-item-view');
+var TodoList = require('../components/todo-list-tmpl');
 var $ = require('jquery');
 
 var TodoListView = Backbone.View.extend({
 	el: $('.todoapp'),
 
-	template: require('ejs!../templates/todo-list-tmpl.ejs'),
+	//template: require('ejs!../templates/todo-list-tmpl.ejs'),
 
 	events: {
 		'submit': 'newTodo',
@@ -18,7 +21,7 @@ var TodoListView = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		this.$el.html(this.template());
+		ReactDOM.render(<TodoList />, this.el); //this.$el.html(this.template());
 		this.list = this.$('.todo-list');
 		this.input = this.$('input[type="text"]');
 		this.collection.forEach(function(model){

@@ -1,10 +1,13 @@
 var Backbone = require('backbone');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Login = require('../components/login-tmpl');
 var $ = require('jquery');
 
 var LoginView = Backbone.View.extend({
 	el: $('.todoapp'),
 
-	template: require('ejs!../templates/login-tmpl.ejs'),
+	//template: require('ejs!../templates/login-tmpl.ejs'),
 
 	events: {
 		'click #login-button': 'login',
@@ -12,7 +15,7 @@ var LoginView = Backbone.View.extend({
 	},
 
 	render: function() {
-		this.$el.html(this.template());
+		ReactDOM.render(<Login />, this.el); //this.$el.html(this.template());
 	},
 
 	login: function(e) {

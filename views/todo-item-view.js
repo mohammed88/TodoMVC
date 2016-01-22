@@ -1,4 +1,7 @@
 var Backbone = require('backbone');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TodoItem = require('../components/todo-item-tmpl');
 
 var TodoItemView = Backbone.View.extend({
 	tagName: 'li',
@@ -17,10 +20,14 @@ var TodoItemView = Backbone.View.extend({
 		'click .toggle': 'toggle'
 	},
 	
-	template: require('ejs!../templates/todo-item-tmpl.ejs'),
+	//template: require('ejs!../templates/todo-item-tmpl.ejs'),
 
 	render: function() {
-		this.$el.html(this.template(this.model.attributes));
+		//this.$el.html(this.template(this.model.attributes));
+		ReactDOM.render(
+			<TodoItem 
+				title={this.model.get('title')} 
+				completed={this.model.get('completed')} />, this.el);
 		this.$el.toggleClass('completed', this.model.get('completed'));
 	},
 
