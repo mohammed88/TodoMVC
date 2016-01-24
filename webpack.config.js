@@ -13,13 +13,16 @@ module.exports = {
 	},
 	
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-
+		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
 		loaders: [
 			{ test: /\.css$/, loader: "style-loader!css-loader" },
-			{ test: /\.js$/, exclude: [/bower_components/, /node_modules/], loader: "babel-loader"}
+			{ test: /\.js$/,
+				exclude: [/bower_components/, /node_modules/], 
+				query: {presets: ['es2015', 'react']},
+				loader: "babel-loader"
+			}
 		]
 	}
 }
